@@ -1,0 +1,7 @@
+name:  roundtrip
+version: 0.1.0
+author: Ali Afshar <afshar@google.com>
+description:  The combined context and utilities of an HTTP request and response.
+
+dependencies:
+  unittest: any
