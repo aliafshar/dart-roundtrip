@@ -1,0 +1,232 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>RoundTrip abstract class / roundtrip Library / Dart Documentation</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="roundtrip" data-type="RoundTrip">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../roundtrip.html">roundtrip</a> &rsaquo; <a href="../roundtrip/RoundTrip.html">RoundTrip</a>        <div id="search-box">
+          <input type="search" name="q" id="q" autocomplete="off"
+              class="search-input" placeholder="Search API">
+        </div>
+        
+      </div>
+      <div class="drop-down" id="drop-down"></div>
+      
+        <div class="nav">
+        
+</div>
+<div class="content">
+        <h2><strong>RoundTrip</strong>
+          abstract class
+        </h2>
+        
+<button id="show-inherited" class="show-inherited">Hide inherited</button>
+<div class="doc">
+<pre class="source">
+abstract class RoundTrip {
+
+ // The HTTP request.
+ final HttpRequest request;
+
+ // The HTTP response.
+ final HttpResponse response;
+
+ // The response body.
+ String body;
+
+ // The response status code.
+ int statusCode;
+
+ // The response status message.
+ String reasonPhrase;
+
+ respond({String body, int status : HttpStatus.OK, InputStream stream});
+
+ /**
+  * Reads the request body as a string, with optional encoding.
+  */
+ String read([Encoding encoding]);
+
+ dynamic readJson();
+
+ /**
+  * Writes a string, with optional encoding, to the response.
+  */
+ String write(String body, [Encoding encoding]);
+
+ /**
+  * Completes the response by closing the output stream.
+  */
+ finish();
+
+ /**
+  * Responds with an HTTP error.
+  *
+  * When the reason is not provided, the default for the status code is used.
+  */
+ respondError(int statusCode, [String reasonPhrase]);
+
+ /**
+  * Responds with a 404, Not Found HTTP error.
+  */
+ respond404();
+
+ /**
+  * Creates an instance of the default implementation of [RoundTrip].
+  */
+ factory RoundTrip(HttpRequest rq, HttpResponse rs, RouteMatch m) {
+   return new _RoundTripImpl(rq, rs, m);
+ }
+}
+</pre>
+</div>
+<div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="RoundTrip">
+<button class="show-code">Code</button>
+factory <strong>RoundTrip</strong>(HttpRequest rq, HttpResponse rs, m) <a class="anchor-link" href="#RoundTrip"
+              title="Permalink to RoundTrip.RoundTrip">#</a></h4>
+<div class="doc">
+<p>Creates an instance of the default implementation of <a class="crossref" href="../roundtrip/RoundTrip.html#RoundTrip">RoundTrip</a>.</p>
+<pre class="source">
+factory RoundTrip(HttpRequest rq, HttpResponse rs, RouteMatch m) {
+ return new _RoundTripImpl(rq, rs, m);
+}
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Properties</h3>
+<div class="field"><h4 id="body">
+<button class="show-code">Code</button>
+String         <strong>body</strong> <a class="anchor-link"
+            href="#body"
+            title="Permalink to RoundTrip.body">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+String body;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="reasonPhrase">
+<button class="show-code">Code</button>
+String         <strong>reasonPhrase</strong> <a class="anchor-link"
+            href="#reasonPhrase"
+            title="Permalink to RoundTrip.reasonPhrase">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+String reasonPhrase;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="request">
+<button class="show-code">Code</button>
+final HttpRequest         <strong>request</strong> <a class="anchor-link"
+            href="#request"
+            title="Permalink to RoundTrip.request">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+final HttpRequest request;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="response">
+<button class="show-code">Code</button>
+final HttpResponse         <strong>response</strong> <a class="anchor-link"
+            href="#response"
+            title="Permalink to RoundTrip.response">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+final HttpResponse response;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="statusCode">
+<button class="show-code">Code</button>
+int         <strong>statusCode</strong> <a class="anchor-link"
+            href="#statusCode"
+            title="Permalink to RoundTrip.statusCode">#</a>
+        </h4>
+        <div class="doc">
+<pre class="source">
+int statusCode;
+</pre>
+</div>
+</div>
+</div>
+<div>
+<h3>Methods</h3>
+<div class="method"><h4 id="finish">
+abstract <strong>finish</strong>() <a class="anchor-link" href="#finish"
+              title="Permalink to RoundTrip.finish">#</a></h4>
+<div class="doc">
+<p>Completes the response by closing the output stream.</p>
+</div>
+</div>
+<div class="method"><h4 id="read">
+abstract String <strong>read</strong>([Encoding encoding]) <a class="anchor-link" href="#read"
+              title="Permalink to RoundTrip.read">#</a></h4>
+<div class="doc">
+<p>Reads the request body as a string, with optional encoding.</p>
+</div>
+</div>
+<div class="method"><h4 id="readJson">
+abstract <strong>readJson</strong>() <a class="anchor-link" href="#readJson"
+              title="Permalink to RoundTrip.readJson">#</a></h4>
+<div class="doc">
+</div>
+</div>
+<div class="method"><h4 id="respond">
+abstract <strong>respond</strong>({String body, int status: HttpStatus.OK, InputStream stream}) <a class="anchor-link" href="#respond"
+              title="Permalink to RoundTrip.respond">#</a></h4>
+<div class="doc">
+</div>
+</div>
+<div class="method"><h4 id="respond404">
+abstract <strong>respond404</strong>() <a class="anchor-link" href="#respond404"
+              title="Permalink to RoundTrip.respond404">#</a></h4>
+<div class="doc">
+<p>Responds with a 404, Not Found HTTP error.</p>
+</div>
+</div>
+<div class="method"><h4 id="respondError">
+abstract <strong>respondError</strong>(int statusCode, [String reasonPhrase]) <a class="anchor-link" href="#respondError"
+              title="Permalink to RoundTrip.respondError">#</a></h4>
+<div class="doc">
+<p>Responds with an HTTP error.</p>
+<p>When the reason is not provided, the default for the status code is used.</p>
+</div>
+</div>
+<div class="method"><h4 id="write">
+abstract String <strong>write</strong>(String body, [Encoding encoding]) <a class="anchor-link" href="#write"
+              title="Permalink to RoundTrip.write">#</a></h4>
+<div class="doc">
+<p>Writes a string, with optional encoding, to the response.</p>
+</div>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer">
+          <div>This page was generated at 2012-12-28 16:23:36.196</div>
+        </div>
+        <script async src="../client-live-nav.js"></script>
+        </body></html>
+        
