@@ -65,8 +65,8 @@ abstract class RoundTrip {
   /**
    * Creates an instance of the default implementation of [RoundTrip].
    */
-  factory RoundTrip(HttpRequest rq, HttpResponse rs, RouteMatch m) {
-    return new _RoundTripImpl(rq, rs, m);
+  factory RoundTrip(HttpRequest rq, HttpResponse rs) {
+    return new _RoundTripImpl(rq, rs);
   }
 }
 
@@ -121,7 +121,6 @@ class _RoundTripImpl implements RoundTrip {
   }
 
   finish() {
-    print('Code: $statusCode');
     response.outputStream.close();
   }
 
