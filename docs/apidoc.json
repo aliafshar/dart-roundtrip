@@ -1,0 +1,298 @@
+
+[
+  {
+    "kind": "library",
+    "name": "roundtrip",
+    "children": [
+      {
+        "superclass": {
+          "name": "Object",
+          "refId": "Object"
+        },
+        "kind": "class",
+        "name": "RoundTrip",
+        "children": [
+          {
+            "returnType": {
+              "name": "dynamic",
+              "refId": "dynamic"
+            },
+            "kind": "method",
+            "name": "respond",
+            "children": [
+              {
+                "ref": {
+                  "name": "String",
+                  "refId": "String"
+                },
+                "isOptional": true,
+                "kind": "param",
+                "name": "body",
+                "id": "body"
+              },
+              {
+                "ref": {
+                  "name": "int",
+                  "refId": "int"
+                },
+                "isOptional": true,
+                "kind": "param",
+                "name": "status",
+                "id": "status"
+              },
+              {
+                "ref": {
+                  "name": "InputStream",
+                  "refId": "InputStream"
+                },
+                "isOptional": true,
+                "kind": "param",
+                "name": "stream",
+                "id": "stream"
+              }
+            ],
+            "id": "respond3()"
+          },
+          {
+            "returnType": {
+              "name": "String",
+              "refId": "String"
+            },
+            "kind": "method",
+            "comment": "\nReads the request body as a string, with optional encoding.\n\n",
+            "name": "read",
+            "children": [
+              {
+                "ref": {
+                  "name": "Encoding",
+                  "refId": "Encoding"
+                },
+                "isOptional": true,
+                "kind": "param",
+                "name": "encoding",
+                "id": "encoding"
+              }
+            ],
+            "id": "read1()"
+          },
+          {
+            "returnType": {
+              "name": "dynamic",
+              "refId": "dynamic"
+            },
+            "kind": "method",
+            "name": "readJson",
+            "id": "readJson0()"
+          },
+          {
+            "returnType": {
+              "name": "String",
+              "refId": "String"
+            },
+            "kind": "method",
+            "comment": "\nWrites a string, with optional encoding, to the response.\n\n",
+            "name": "write",
+            "children": [
+              {
+                "ref": {
+                  "name": "String",
+                  "refId": "String"
+                },
+                "kind": "param",
+                "name": "body",
+                "id": "body"
+              },
+              {
+                "ref": {
+                  "name": "Encoding",
+                  "refId": "Encoding"
+                },
+                "isOptional": true,
+                "kind": "param",
+                "name": "encoding",
+                "id": "encoding"
+              }
+            ],
+            "id": "write2()"
+          },
+          {
+            "returnType": {
+              "name": "dynamic",
+              "refId": "dynamic"
+            },
+            "kind": "method",
+            "comment": "\nCompletes the response by closing the output stream.\n\n",
+            "name": "finish",
+            "id": "finish0()"
+          },
+          {
+            "returnType": {
+              "name": "dynamic",
+              "refId": "dynamic"
+            },
+            "kind": "method",
+            "comment": "\nResponds with an HTTP error.\n\nWhen the reason is not provided, the default for the status code is used.\n\n",
+            "name": "respondError",
+            "children": [
+              {
+                "ref": {
+                  "name": "int",
+                  "refId": "int"
+                },
+                "kind": "param",
+                "name": "statusCode",
+                "id": "statusCode"
+              },
+              {
+                "ref": {
+                  "name": "String",
+                  "refId": "String"
+                },
+                "isOptional": true,
+                "kind": "param",
+                "name": "reasonPhrase",
+                "id": "reasonPhrase"
+              }
+            ],
+            "id": "respondError2()"
+          },
+          {
+            "returnType": {
+              "name": "dynamic",
+              "refId": "dynamic"
+            },
+            "kind": "method",
+            "comment": "\nResponds with a 404, Not Found HTTP error.\n\n",
+            "name": "respond404",
+            "id": "respond4040()"
+          },
+          {
+            "returnType": {
+              "name": "dynamic",
+              "refId": "dynamic"
+            },
+            "kind": "method",
+            "comment": "\nCreates an instance of the default implementation of [RoundTrip].\n\n",
+            "name": "RoundTrip",
+            "children": [
+              {
+                "ref": {
+                  "name": "HttpRequest",
+                  "refId": "HttpRequest"
+                },
+                "kind": "param",
+                "name": "rq",
+                "id": "rq"
+              },
+              {
+                "ref": {
+                  "name": "HttpResponse",
+                  "refId": "HttpResponse"
+                },
+                "kind": "param",
+                "name": "rs",
+                "id": "rs"
+              },
+              {
+                "ref": {
+                  "name": "dynamic",
+                  "refId": "dynamic"
+                },
+                "kind": "param",
+                "name": "m",
+                "id": "m"
+              }
+            ],
+            "id": "RoundTrip3()"
+          },
+          {
+            "ref": {
+              "name": "HttpRequest",
+              "refId": "HttpRequest"
+            },
+            "kind": "property",
+            "name": "request",
+            "id": "request"
+          },
+          {
+            "ref": {
+              "name": "HttpResponse",
+              "refId": "HttpResponse"
+            },
+            "kind": "property",
+            "name": "response",
+            "id": "response"
+          },
+          {
+            "ref": {
+              "name": "String",
+              "refId": "String"
+            },
+            "kind": "property",
+            "name": "body",
+            "id": "body"
+          },
+          {
+            "ref": {
+              "name": "int",
+              "refId": "int"
+            },
+            "kind": "property",
+            "name": "statusCode",
+            "id": "statusCode"
+          },
+          {
+            "ref": {
+              "name": "String",
+              "refId": "String"
+            },
+            "kind": "property",
+            "name": "reasonPhrase",
+            "id": "reasonPhrase"
+          },
+          {
+            "returnType": {
+              "name": "dynamic",
+              "refId": "dynamic"
+            },
+            "kind": "constructor",
+            "comment": "\nCreates an instance of the default implementation of [RoundTrip].\n\n",
+            "name": "RoundTrip",
+            "children": [
+              {
+                "ref": {
+                  "name": "HttpRequest",
+                  "refId": "HttpRequest"
+                },
+                "kind": "param",
+                "name": "rq",
+                "id": "rq"
+              },
+              {
+                "ref": {
+                  "name": "HttpResponse",
+                  "refId": "HttpResponse"
+                },
+                "kind": "param",
+                "name": "rs",
+                "id": "rs"
+              },
+              {
+                "ref": {
+                  "name": "dynamic",
+                  "refId": "dynamic"
+                },
+                "kind": "param",
+                "name": "m",
+                "id": "m"
+              }
+            ],
+            "id": "RoundTrip3()"
+          }
+        ],
+        "id": "RoundTrip"
+      }
+    ],
+    "id": "file:///home/afshar/wrk/dart-roundtrip/lib/roundtrip.dart"
+  }
+]
