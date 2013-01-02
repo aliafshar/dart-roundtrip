@@ -31,6 +31,9 @@ abstract class RoundTrip {
   // The response status message.
   String reasonPhrase;
 
+  // Additional arguments to this roundtrip.
+  Map matchArgs;
+
   respond({String body, int status : HttpStatus.OK, InputStream stream});
 
   /**
@@ -74,6 +77,8 @@ class _RoundTripImpl implements RoundTrip {
 
   final HttpRequest request;
   final HttpResponse response;
+
+  final Map matchArgs = new Map();
 
   String _body;
   dynamic _jsonBody;
