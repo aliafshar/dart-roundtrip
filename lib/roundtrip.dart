@@ -2,6 +2,12 @@ library roundtrip;
 
 import 'dart:io';
 import 'dart:json';
+import  'package:logging/logging.dart';
+
+
+logRoundtrip(RoundTrip r) {
+  Logger.root.fine('${r.request.path} ${r.response.statusCode}');
+}
 
 
 /*
@@ -18,6 +24,8 @@ abstract class RoundTrip {
 
   // The HTTP request.
   final HttpRequest request;
+
+  final Map<String, String> args;
 
   // The HTTP response.
   final HttpResponse response;
@@ -80,6 +88,8 @@ class _RoundTripImpl implements RoundTrip {
 
   final Map matchArgs = new Map();
 
+  Map get args => request.queryParameters;
+
   String _body;
   dynamic _jsonBody;
 
@@ -99,13 +109,11 @@ class _RoundTripImpl implements RoundTrip {
     return _jsonBody;
   }
 
-  int
-    get statusCode => response.statusCode;
-    set statusCode(int value) => response.statusCode = value;
+  int get statusCode => response.statusCode;
+      set statusCode(int value) => response.statusCode = value;
 
-  String
-    get reasonPhrase => response.reasonPhrase;
-    set reasonPhrase(String value) => response.reasonPhrase = value;
+  String get reasonPhrase => response.reasonPhrase;
+         set reasonPhrase(String value) => response.reasonPhrase = value;
 
   String read([Encoding encoding]) {
     var stream = new StringInputStream(request.inputStream, encoding);
@@ -120,12 +128,14 @@ class _RoundTripImpl implements RoundTrip {
     response.outputStream.writeString(body, encoding);
   }
 
-  respond({String body, int status : HttpStatus.OK, InputStream stream}) {
+  respond({String body : '', int status : HttpStatus.OK, InputStream stream}) {
+    statusCode = status;
     write(body);
     finish();
   }
 
   finish() {
+    logRoundtrip(this);
     response.outputStream.close();
   }
 
