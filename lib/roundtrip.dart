@@ -2,8 +2,8 @@ library roundtrip;
 
 import 'dart:io';
 import 'dart:json';
-import  'package:logging/logging.dart';
-
+import 'package:logging/logging.dart';
+import 'package:principal/principal.dart';
 
 logRoundtrip(RoundTrip r) {
   Logger.root.fine('${r.request.path} ${r.response.statusCode}');
@@ -41,6 +41,9 @@ abstract class RoundTrip {
 
   // Additional arguments to this roundtrip.
   Map matchArgs;
+
+  // Identity of the request. Must be set manually.
+  Identity identity;
 
   respond({String body, int status : HttpStatus.OK, InputStream stream});
 
@@ -87,6 +90,8 @@ class _RoundTripImpl implements RoundTrip {
   final HttpResponse response;
 
   final Map matchArgs = new Map();
+
+  Identity identity;
 
   Map get args => request.queryParameters;
 

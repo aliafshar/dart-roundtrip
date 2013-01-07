@@ -8,3 +8,5 @@ dependencies:
   logging: any
   httpstub:
     git: git://github.com/aliafshar/dart-httpstub.git
+  principal:
+    git: git://github.com/aliafshar/dart-principal.git
