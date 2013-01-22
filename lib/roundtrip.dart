@@ -1,7 +1,7 @@
 library roundtrip;
 
 import 'dart:io';
-import 'dart:json';
+import 'dart:json' as json;
 
 
 /*
@@ -94,7 +94,7 @@ class _RoundTripImpl implements RoundTrip {
 
   dynamic get json {
     if (_jsonBody == null) {
-      _jsonBody = JSON.parse(body);
+      _jsonBody = json.parse(body);
     }
     return _jsonBody;
   }
@@ -113,7 +113,7 @@ class _RoundTripImpl implements RoundTrip {
   }
 
   dynamic readJson() {
-    return JSON.parse(read());
+    return json.parse(read());
   }
 
   write(String body, [Encoding encoding = Encoding.UTF_8]) {
