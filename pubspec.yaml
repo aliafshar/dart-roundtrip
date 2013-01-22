@@ -5,3 +5,8 @@ description:  The combined context and utilities of an HTTP request and response
 
 dependencies:
   unittest: any
+  logging: any
+  httpstub:
+    git: git://github.com/aliafshar/dart-httpstub.git
+  principal:
+    git: git://github.com/aliafshar/dart-principal.git
